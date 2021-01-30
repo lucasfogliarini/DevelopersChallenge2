@@ -13,7 +13,7 @@ namespace NiboBankConciliator.Tests.Integration
         readonly IBankReconciliationService _bankReconciliationService;
         public BankReconciliationServiceTests()
         {
-            var bankConciliatorConnectionString = "Server=(LocalDB)\\MSSQLLocalDB;Integrated Security=true;AttachDbFileName=C:\\Users\\lucas_pedroso1\\Desktop\\NiboBankConciliator\\Data\\BankConciliatorDb.mdf";
+            var bankConciliatorConnectionString = @"Server=(LocalDB)\\MSSQLLocalDB;Integrated Security=true;AttachDbFileName=~\Data\BankConciliatorDb.mdf";
             var serviceProvider = new ServiceCollection().AddAllServices(bankConciliatorConnectionString).BuildServiceProvider();
             _bankReconciliationService = serviceProvider.GetService<IBankReconciliationService>();
         }
