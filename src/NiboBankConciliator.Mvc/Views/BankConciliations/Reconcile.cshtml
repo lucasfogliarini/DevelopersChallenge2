@@ -1,0 +1,34 @@
+﻿@model NiboBankConciliator.Core.Entities.BankAccount
+@{
+    ViewData["Title"] = "Reconcile";
+}
+
+<h1>Reconcile</h1>
+<hr />
+<div class="row">
+    <div class="col-md-12">
+        <form method="post" class="file-uploader" action="" enctype="multipart/form-data">
+            <div class="file-uploader__message-area">
+                <p>Select the OFX Documents</p>
+            </div>
+            <div class="file-chooser">
+                <input name="files" class="file-chooser__input" type="file" multiple>
+            </div>
+            <input class="file-uploader__submit-button" type="submit" value="Reconcile">
+        </form>
+    </div>
+</div>
+
+@if (Model != null)
+{
+    <h2>Account</h2>
+    @Html.DisplayForModel();
+    <br />
+    <h2>Transactions</h2>
+    await Html.RenderPartialAsync("_BankTransactions", Model.Transactions);
+}
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script src="~/js/multiple-file-uploader.js"></script>
+}

@@ -1,0 +1,53 @@
+﻿@model IEnumerable<NiboBankConciliator.Core.Entities.BankAccount>
+
+@{
+    ViewData["Title"] = "Bank Accounts";
+}
+
+<h1>Bank Accounts</h1>
+
+@if (Model != null)
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Id)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.BankID)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.AccountID)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.AccountType)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Id)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.BankID)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.AccountID)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.AccountType)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Transactions", "Details", new { id = item.Id })
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+

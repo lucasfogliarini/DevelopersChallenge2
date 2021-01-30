@@ -1,0 +1,45 @@
+﻿@model NiboBankConciliator.Core.Entities.BankAccount
+
+@{
+    ViewData["Title"] = $"Transactions - {Model.AccountID}";
+}
+
+<div>
+    <h4>BankAccount</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Id)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Id)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.BankID)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.BankID)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.AccountID)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.AccountID)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.AccountType)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.AccountType)
+        </dd>
+    </dl>
+</div>
+<div>
+    <h4>Transactions</h4>
+
+    @{ await Html.RenderPartialAsync("_BankTransactions", Model.Transactions); }
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>

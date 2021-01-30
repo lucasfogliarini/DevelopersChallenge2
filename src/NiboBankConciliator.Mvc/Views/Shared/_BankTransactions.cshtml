@@ -1,0 +1,39 @@
+﻿@model IEnumerable<NiboBankConciliator.Core.Entities.BankTransaction>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.TransType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TransAmount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DatePosted)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Memo)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TransType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TransAmount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DatePosted)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Memo)
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
